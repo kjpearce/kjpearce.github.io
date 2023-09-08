@@ -52,10 +52,31 @@
 						<!-- Content -->
 							<div class="wrapper">
 								<div class="inner">
-
+                                    
 									<section>
 										<h3 class="major">Current Research</h3>
-										<p>Unlike some folks, I did not originally plan on being a mathematician. Like all folks, my journey has been nonlinear. I've always loved math, but I also loved reading, analyzing, and writing about literature.</p>
+										<p> My postdoctoral research at the Oden Institute with Gunnar Martinsson's group centers on randomized algorithms for low-rank matrix approximations. 
+										</p>    
+                                        
+									<section>
+										<h4 class="major">Randomized Algorithms for Interpolative Decompositions</h4>                                           
+										<p> My first project involves the development of an adaptive randomized algorithm to determine approximate interpolative decompositions of large matrices using LU with partial pivoting (LUPP). Deterministic algorithms for LUPP are notoriously not rank-revealing (e.g. Wilkinson (1965), Kahan (1965), Golub (1965)), whereas deterministic QR with column pivoting (QRCP) rarely fails to be rank-revealing in practice. Both randomized and deterministic versions of QRCP are also easy to make adaptive (i.e. with a prescribed tolerance for the residual approximation error) because of the orthonormal basis computations involved. However, as a result, QRCP is more computationally expensive than LUPP and more difficult to parallelize for high-performance computing. </p>   
+                                        										<p> While deterministic LUPP is not rank-revealing, when LUPP is applied to a <i> random sketch </i> of a matrix, it exhibits rank-revealing properties characteristic to QRCP. We propose an adaptive algorithm using blocked LUPP applied to independent random sketches of the input matrix, with an unbiased residual error estimate given by the Frobenius norm of Schur complements. We also conjecture that the maximal elements of "residual" upper triangular matrices in our LUPP-based algorithm may be used as a proxy for the Schur complement error measure, up to proper scaling by the asymptotic growth factor for random matrices from the Haar distribution. Stay tuned for our upcoming manuscript! </p>   
+									</section>
+                                    
+									<section>
+										<h4 class="major">Randomized Algorithms for Rank-Structured Matrix Compression</h4>                                           
+										<p> My second project involves randomized algorithms for rank-structured matrices. A rank-structured matrix is one which can be tessellated into a number of submatrices, or blocks, which are either small enough to work with directly or else are well-approximated by a low-rank matrix. Finding the representation of the input matrix in terms of these low-rank factors is known as compression. Rank-structured matrix compression is relevant to many scientific applications, such as machine learning (kernel matrices) or fast direct solvers for elliptic PDEs (dense Schur complements in LU factorizations of sparse matrices). However, because of the huge problem sizes associated with many of these applications, deterministic algorithms to compute the low-rank basis matrices for admissible blocks are intractable due to issues like memory inefficiency and computational costs. </p> 
+                                        										<p> Randomized algorithms have proven to be a reliable and effective means of handling rank-structured matrix compression. Based on ideas like the randomized SVD (Halko, Martinsson, and Tropp (2011), Martinsson and Tropp (2020)), we randomly sample the admissible blocks and compute low-rank factors of the sketch. However, sampling itself can be cost- or memory-prohibitive based on the size of the input matrix, so efficient sampling algorithms are critical in this regard. Additionally, we often desire black-box methods of rank-structured matrix compression when dealing with applications where the input matrix is only available through matrix-vector products (matvecs). Currently, I am working on a grant proposal to investigate a new randomized sampling technique and compare its performance to state of the art methods.  </p>   
+									</section>                                        
+                                        
+									</section>
+                          
+									<section>
+										<h3 class="major">My Research Journey</h3>
+										<p>Unlike some academic math folks, I did not plan on being a mathematician. But like all folks, my journey has been nonlinear. I've always loved math, but I also love making art and reading, analyzing, and writing about literature, especially poetry. I ended up doing a B.A. in English while I did a B.S. in math at UT Austin, and I almost went to grad school for English. </p>                           
+										<p>Instead, I started my PhD in Denver in pure math. But after a couple of years, I was finally honest with myself that I wasn't happy, and I made the switch to NC State. It was hard because it meant uprooting and starting over with classes and qualifying exams, but it ended up being the best decision of my life. I first worked with Agnes Szanto, my life-changing computer algebra professor, in symbolic computation, but I realized that I enjoyed the scientific programming with real data that I learned in my modeling courses with Mansoor Haider. He later became my PhD advisor and greatest mentor. </p>                                      										<p> Dr. Haider and I worked on a parameter identifiability problem involving a mathematical model for a wound healing application. Namely, we derived a coupled system of ODEs describing the relevant enzyme kinetics occuring during hemostasis, the clotting phase of wound healing. Our collaborator, Dr. Ashley Brown, had developed a fully synthetic proxy for a platelet, called a platelet-like particle (PLP), one of the key players in the formation of the fibrin clot (i.e. that thing your mom tells you not to pick at). This is especially critical for neonatal hemostasis; newborns are usually treated for bleeding issues with substrates derived from adult blood, which can cause major health issues for them later in life. Dr. Brown's synthetic PLPs would circumvent that problem, but we needed to better understand the underlying kinetics in the corresponding chemical reactions, which are governed by reaction rate parameters and take place on different time scales, resulting in a very stiff ODE system.</p>
+		<p> We began investigating which parameters in our model could be uniquely estimated from the data collected by Dr. Brown's research group through high-throughput clotting experiments. The most tractable and informative method for our purposes is called local sensitivity analysis, where a <i> sensitivity matrix</i> (Jacobian) of model outputs is computed with respect to the parameters. Parameters that are not identifiable do not contribute to the rank of the sensitivity matrix; thus, subset selection algorithms may be used to determine the columns (corresponding to parameters) of the matrix that best approximate a basis for the column space. This research led to a collaboration with Ilse Ipsen and piqued my interest in numerical linear algebra. </p>
 									</section>		
 
 								</div>
@@ -63,45 +84,6 @@
 
 					</section>
 
-				<!-- Footer -->
-					<section id="footer">
-						<div class="inner">
-							<h2 class="major">Get in touch</h2>
-							<p>Questions, comments, or concerns? I'd love to hear from you!</p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="email" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-							<ul class="contact">
-								<li class="icon solid fa-home">
-									SAS Hall<br />
-									2311 Stinson Dr #2108<br />
-									Raleigh, NC 27607-8205
-								</li>
-								<li class="icon solid fa-phone">(919) 515-2382</li>
-								<li class="icon solid fa-envelope"><a href="#">kjpearce@ncsu.edu</a></li>
-	
-							</ul>
-							<ul class="copyright">
-								<li>&copy; Kate Pearce. All rights reserved.</li>
-							</ul>
-						</div>
-					</section>
 
 			</div>
 
